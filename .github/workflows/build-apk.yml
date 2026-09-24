@@ -1,0 +1,39 @@
+name: Gerar APK Mra Envios
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar arquivos
+        uses: actions/checkout@v4
+
+      - name: Extrair projeto
+        run: unzip -q Mra_Envios_Android_GitHub.zip -d projeto
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Gerar APK
+        working-directory: projeto
+        run: gradle assembleDebug
+
+      - name: Salvar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mra-Envios-APK
+          path: projeto/app/build/outputs/apk/debug/app-debug.apk
