@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extrair projeto
-        run: run: unzip -q Mra_Envios_Android_GitHub_v3_ICONE.zip -d projeto
+        run:  unzip -q Mra_Envios_Android_GitHub_v3_ICONE.zip -d projeto
       - name: Configurar Java
         uses: actions/setup-java@v4
         with:
