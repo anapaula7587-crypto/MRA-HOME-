@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extrair projeto
-        run:    unzip -q Mra_Envios_Android_GitHub_v5_NOTIFICACOES.zip -d projeto
+        run:     unzip -q Mra_Envios_Android_GitHub_v6_NOTIFICACOES_CORRIGIDAS.zip -d projeto
       - name: Configurar Java
         uses: actions/setup-java@v4
         with:
